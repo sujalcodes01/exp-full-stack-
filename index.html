@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balance App</title>
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h2>Balance : ₹ <span id="balance">0</span></h2>
+
+        <label>Amount</label>
+        <input type="number" id="amount" placeholder="Enter amount">
+
+        <div class="btns">
+            <button class="deposit" onclick="deposit()">Deposit</button>
+            <button class="withdraw" onclick="withdraw()">Withdraw</button>
+        </div>
+
+        <p id="message"></p>
+
+    </div>
+
+<script>
+    let balance = 0;
+
+    function deposit() {
+        let money = document.getElementById("amount").value;
+
+        if (money > 0) {
+            balance += Number(money);
+            document.getElementById("balance").innerText = balance;
+            document.getElementById("message").innerText =
+                "Money deposited successfully";
+            document.getElementById("message").style.color = "green";
+        } 
+        else {
+            document.getElementById("message").innerText =
+                "Please enter valid amount";
+            document.getElementById("message").style.color = "red";
+        }
+
+        document.getElementById("amount").value = "";
+    }
+
+    function withdraw() {
+        let money = document.getElementById("amount").value;
+
+        if (money > 0 && money <= balance) {
+            balance -= Number(money);
+            document.getElementById("balance").innerText = balance;
+            document.getElementById("message").innerText =
+                "Money withdrawn successfully";
+            document.getElementById("message").style.color = "green";
+        } 
+        else {
+            document.getElementById("message").innerText =
+                "Insufficient balance or invalid amount";
+            document.getElementById("message").style.color = "red";
+        }
+
+        document.getElementById("amount").value = "";
+    }
+</script>
+
+</body>
+</html>
