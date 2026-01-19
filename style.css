@@ -1,73 +1,74 @@
+
+:root {
+    --bg-color: #0f172a;
+    --card-color: #1e293b;
+    --text-color: #ffffff;
+    --border-color: rgba(255,255,255,0.15);
+}
+.light-theme {
+    --bg-color: #f8fafc;
+    --card-color: #ffffff;
+    --text-color: #0f172a;
+    --border-color: rgba(0,0,0,0.15);
+}
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
 }
-
 body {
+    background: var(--bg-color);
+    color: var(--text-color);
+    min-height: 100vh;
+}
+.dashboard {
+    display: grid;
+    grid-template-rows: 80px 1fr;
+    grid-template-columns: 260px 1fr;
+    grid-template-areas:
+        "header header"
+        "sidebar main";
     height: 100vh;
-    background: #f0f2f5;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
-
-.container {
-    width: 320px;
-    background: white;
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.2);
-    text-align: center;
-}
-
-h2 {
-    margin-bottom: 20px;
-}
-
-label {
-    font-weight: bold;
-    display: block;
-    margin-bottom: 8px;
-}
-
-input {
-    width: 100%;
-    height: 35px;
-    padding: 5px;
-    margin-bottom: 20px;
-    font-size: 16px;
-}
-
-.btns {
+.header {
+    grid-area: header;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    border-bottom: 1px solid var(--border-color);
 }
-
-button {
-    width: 48%;
-    height: 38px;
-    border: none;
-    color: white;
-    font-size: 16px;
+.header button {
+    padding: 10px 18px;
+    background: var(--card-color);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 8px;
+    font-size: 16px;
 }
-
-.deposit {
-    background-color: #007bff;
+.sidebar {
+    grid-area: sidebar;
+    padding: 30px;
+    border-right: 1px solid var(--border-color);
 }
-
-.withdraw {
-    background-color: #dc3545;
+.main {
+    grid-area: main;
+    padding: 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
 }
-
-button:hover {
-    opacity: 0.85;
+.card {
+    background: var(--card-color);
+    padding: 40px;
+    border-radius: 15px;
+    border: 1px solid var(--border-color);
+    font-size: 22px;
+    text-align: center;
+    transition: 0.3s;
 }
-
-#message {
-    margin-top: 15px;
-    font-weight: bold;
+.card:hover {
+    transform: translateY(-5px);
 }
