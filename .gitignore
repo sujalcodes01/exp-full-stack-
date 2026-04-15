@@ -1,0 +1,14 @@
+# Ignore nested git repositories
+**/.git
+
+# Ignore dependency folders
+**/node_modules
+**/.cache
+
+# Ignore build artifacts
+**/dist
+**/build
+
+# Ignore OS files
+.DS_Store
+Thumbs.db
