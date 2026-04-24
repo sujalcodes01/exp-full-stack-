@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Experiment 3.2.3</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero">
+        <p class="eyebrow">Cloud Deployment Lab</p>
+        <h1>AWS Deployment with Load Balancing</h1>
+        <p class="lede">
+          This sample full-stack app is deployed on ECS behind an Application
+          Load Balancer with auto-scaling and CI/CD automation.
+        </p>
+      </section>
+
+      <section class="grid">
+        <article class="card">
+          <h2>Infrastructure</h2>
+          <ul>
+            <li>VPC across 2 availability zones</li>
+            <li>Public ALB + private ECS tasks</li>
+            <li>Auto Scaling Group for ECS capacity</li>
+            <li>Terraform-managed infrastructure</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h2>Deployment Flow</h2>
+          <ol>
+            <li>Push to GitHub</li>
+            <li>CodePipeline triggers CodeBuild</li>
+            <li>Docker image is pushed to ECR</li>
+            <li>ECS service rolls out the new version</li>
+          </ol>
+        </article>
+      </section>
+
+      <section class="card api-card">
+        <h2>Live Service Info</h2>
+        <pre id="info">Loading service metadata...</pre>
+      </section>
+    </main>
+
+    <script>
+      async function loadInfo() {
+        const response = await fetch("/api/info");
+        const data = await response.json();
+        document.getElementById("info").textContent = JSON.stringify(data, null, 2);
+      }
+
+      loadInfo().catch((error) => {
+        document.getElementById("info").textContent = error.message;
+      });
+    </script>
+  </body>
+</html>

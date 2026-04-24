@@ -1,0 +1,14 @@
+{
+  "name": "exp-3.2.3-aws-ecs-alb-autoscaling",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Experiment 3.2.3 - AWS deployment with load balancing and auto-scaling",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}

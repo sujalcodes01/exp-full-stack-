@@ -1,0 +1,10 @@
+project_name            = "exp-3-2-3"
+aws_region              = "ap-south-1"
+github_owner            = "your-github-username"
+github_repo             = "your-repository-name"
+github_branch           = "main"
+codestar_connection_arn = "arn:aws:codestar-connections:ap-south-1:123456789012:connection/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+instance_type           = "t3.micro"
+desired_capacity        = 2
+min_capacity            = 2
+max_capacity            = 4
